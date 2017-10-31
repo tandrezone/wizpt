@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use wizpt\cms\Traits\Admin\PageCtrl;
+
+
+class PagesController extends Controller
+{
+    use PageCtrl;
+}

@@ -1,0 +1,129 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Create a Page</div>
+
+                <div class="panel-body">
+                    @if (Session::has('message'))
+                        <div class="alert alert-info">{{ Session::get('message') }}</div>
+                    @endif
+
+                    <form method="POST" action="{{ route('pages.index') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" placeholder="title" name="title"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Body</label>
+                            <textarea id="body" class="form-control" placeholder="body" name="body"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" class="form-control" placeholder="description" name="description"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Keywords</label>
+                            <input type="text" class="form-control" placeholder="keywords" name="keywords"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Lang</label>
+                            <p>
+                                <select name="lang" required>
+                                    @foreach ( app()->config['app']['locales'] as $key => $value)
+                                        <option value="{{$key}}" @if($lang == $key) selected @endif>{{$value}}</option>
+                                    @endforeach
+                                </select>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label>Translates</label>
+                            <p>
+                                <select name="translate" required>
+                                    <option value="0">Nothing</option>
+                                    @if(method_exists($pages,'getOriginalPages'))
+                                        @foreach ($pages->getOriginalPages() as $pageT)
+                                            <option value="{{$pageT->id}}" @if($pageT->id == $id) selected @endif>{{$pageT->title}}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label>Parent</label>
+                            <p>
+                                <select name="parent" required>
+                                    <option value="0">None</option>
+                                    @if(method_exists($pages,'getOriginalPages'))
+                                        @foreach ($pages->getOriginalPages() as $pageT)
+                                            <option value="{{$pageT->id}}">{{$pageT->title}}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label>Active</label>
+                            <input type="checkbox" name="active" value="1"/>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Create the page">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form id = "formUpload" name="formUpload" class="hidden">
+    {{ csrf_field() }}
+    <input type="file" name="file" id="file" enctype="multipart\forma-data">
+    <input type="submit">
+</form>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        tinymce.init({
+            selector: 'textarea',
+            height: 300,
+            theme: 'modern',
+            plugins: [
+                'image imagetools advlist anchor autolink autoresize colorpicker contextmenu directionality emoticons fullpage fullscreen help insertdatetime link lists media '
+            ],
+            toolbar1: 'styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            relative_urls: false,
+            file_browser_callback: function(field_name, url, type, win) {
+                imageUploadController(type,field_name);
+            }
+        });
+        function imageUploadController(type, field_name){
+            tinymce = {
+                type        : type,
+                field_name  : field_name,
+            }
+            
+            $('#formUpload #file').click()
+
+            $('#file').change(function() { 
+                var form = document.forms.namedItem("formUpload");
+                var formData = new FormData(form);
+                jQuery.ajax({
+                    url: '/admin/upload',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    method: 'POST',
+                    type: 'POST',
+                    success: function(data){
+                        $('#'+tinymce.field_name).val(data);
+                    }
+                });
+                    
+            });
+        }
+    });
+</script>
+@endsection

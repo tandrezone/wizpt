@@ -1,0 +1,11 @@
+<?php
+
+namespace {{namespace}}Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use wizpt\cms\Traits\Auth\WizRegistersUsers;
+
+class RegisterController extends Controller
+{
+    use WizRegistersUsers;
+}

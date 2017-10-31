@@ -1,0 +1,15 @@
+
+Auth::routes();
+
+Route::get('/admin', 'HomeController@index')->name('admin');
+
+Route::resource('/admin/pages', 'Admin\PagesController');
+
+Route::post("/admin/upload",'Admin\tinymceController@upload');
+
+Route::group(['middleware' => 'setlang'], function () {
+	Route::get('{slug}', [
+	    'uses' => 'PagesController@getPage' 
+	])->where('slug', '([A-Za-z0-9\-\/]+)');
+});
+

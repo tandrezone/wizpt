@@ -1,0 +1,16 @@
+<p>
+	@foreach($page->getParent($page->parent) as $parent)
+		<a href="{{$parent->slug}}">{{$parent->title}}</a>
+	@endforeach
+</p>
+@foreach ( app()->config['app']['locales'] as $key => $value)
+    @if($pageCtrl->hasLang($key) AND Session::get('locale') != $key)<a href="{{$pageCtrl->getPath($key)}}">{{$value}}</a>@endif
+@endforeach
+<h1>{{$page->title}}</h1>
+<p>{!! $page->body !!}</p>
+
+<p>
+	@foreach($page->getChildren($page->id) as $parent)
+		<a href="{{$parent->slug}}">{{$parent->title}}</a>
+	@endforeach
+</p>

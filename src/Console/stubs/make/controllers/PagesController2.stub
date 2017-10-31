@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use wizpt\cms\Traits\FrontendPages;
+
+
+class PagesController extends Controller
+{
+   use FrontendPages;
+}
