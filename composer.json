@@ -2,5 +2,15 @@
     "name": "wizpt/cms",
     "description": "cms for wiz",
     "require": {},
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "wizpt\\cms\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "wizpt\\cms\\": "src/"
+        }
+    },
 }
