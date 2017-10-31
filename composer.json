@@ -2,5 +2,5 @@
     "name": "wizpt/cms",
     "description": "cms for wiz",
     "require": {},
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
