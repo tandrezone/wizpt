@@ -110,7 +110,6 @@ class CmsMakeCommand extends Command
         if (! is_dir($directory = resource_path('views/layouts'))) {
             mkdir($directory, 0755, true);
         }
-
         if (! is_dir($directory = resource_path('views/auth/passwords'))) {
             mkdir($directory, 0755, true);
         }
