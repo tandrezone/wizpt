@@ -123,6 +123,9 @@ class CmsMakeCommand extends Command
         if (! is_dir($directory = app_path('Http/Controllers/Admin'))) {
             mkdir($directory, 0755, true);
         }
+        if (! is_dir($directory = app_path('Http/Controllers/Auth'))) {
+            mkdir($directory, 0755, true);
+        }
     }
 
     /**
