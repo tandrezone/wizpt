@@ -28,10 +28,8 @@ trait FrontendPages
         if($needToChangeLang) {
             return $needToChangeLang;
         }
-
     	$page = $this->get($slug);
-
-        return View::make('pages.frontend')
+        return View::make('admin.pages.frontend')
             ->with('page',$page[0])
             ->with('pageCtrl',$this);
     }
