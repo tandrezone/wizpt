@@ -40,7 +40,7 @@ class CmsMakeCommand extends Command
 
         'pages/create.stub' => 'admin/pages/create.blade.php',
         'pages/edit.stub' => 'admin/pages/edit.blade.php',
-        'pages/frontend.stub' => 'admin/pages/frontend.blade.php',
+        'pages/frontend.stub' => 'pages/frontend.blade.php',
         'pages/index.stub' => 'admin/pages/index.blade.php',
         'pages/show.stub' => 'admin/pages/show.blade.php',
     ];
@@ -118,6 +118,9 @@ class CmsMakeCommand extends Command
             mkdir($directory, 0755, true);
         }
         if (! is_dir($directory = resource_path('views/admin/pages'))) {
+            mkdir($directory, 0755, true);
+        }
+        if (! is_dir($directory = resource_path('views/pages'))) {
             mkdir($directory, 0755, true);
         }
         if (! is_dir($directory = app_path('Http/Controllers/Admin'))) {
