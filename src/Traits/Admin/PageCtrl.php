@@ -46,7 +46,7 @@ trait PageCtrl
             ->get();
 
         //load the view and pass the pages
-        return View::make('pages.index')
+        return View::make('admin.pages.index')
             ->with('pages',$pages);
     }
 
@@ -67,7 +67,7 @@ trait PageCtrl
         if(!$pages->isEmpty()){
             $pages = $pages[0];
         }
-        return View::make('pages.create')
+        return View::make('admin.pages.create')
             ->with('pages',$pages)
             ->with('lang',$lang)
             ->with('id',$id);
@@ -130,7 +130,7 @@ trait PageCtrl
         $page = Page::find($id);
         
         // show the view and pass the nerd to it
-        return View::make('pages.show')
+        return View::make('admin.pages.show')
             ->with('page', $page);
     }
 
@@ -145,7 +145,7 @@ trait PageCtrl
         // get the page
         $page = Page::find($id);
         // show the edit form and pass the page
-        return View::make('pages.edit')
+        return View::make('admin.pages.edit')
             ->with('page', $page);
     }
 

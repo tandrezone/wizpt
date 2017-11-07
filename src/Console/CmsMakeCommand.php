@@ -31,18 +31,18 @@ class CmsMakeCommand extends Command
      * @var array
      */
     protected $views = [
-        'auth/login.stub' => 'auth/login.blade.php',
-        'auth/register.stub' => 'auth/register.blade.php',
-        'auth/passwords/email.stub' => 'auth/passwords/email.blade.php',
-        'auth/passwords/reset.stub' => 'auth/passwords/reset.blade.php',
-        'layouts/app.stub' => 'layouts/app.blade.php',
+        'auth/login.stub' => 'admin/auth/login.blade.php',
+        'auth/register.stub' => 'admin/auth/register.blade.php',
+        'auth/passwords/email.stub' => 'admin/auth/passwords/email.blade.php',
+        'auth/passwords/reset.stub' => 'admin/auth/passwords/reset.blade.php',
+        'layouts/app.stub' => 'admin/layouts/app.blade.php',
         'home.stub' => 'home.blade.php',
 
-        'pages/create.stub' => 'pages/create.blade.php',
-        'pages/edit.stub' => 'pages/edit.blade.php',
-        'pages/frontend.stub' => 'pages/frontend.blade.php',
-        'pages/index.stub' => 'pages/index.blade.php',
-        'pages/show.stub' => 'pages/show.blade.php',
+        'pages/create.stub' => 'admin/pages/create.blade.php',
+        'pages/edit.stub' => 'admin/pages/edit.blade.php',
+        'pages/frontend.stub' => 'admin/pages/frontend.blade.php',
+        'pages/index.stub' => 'admin/pages/index.blade.php',
+        'pages/show.stub' => 'admin/pages/show.blade.php',
     ];
 
     /**
@@ -107,13 +107,17 @@ class CmsMakeCommand extends Command
      */
     protected function createDirectories()
     {
-        if (! is_dir($directory = resource_path('views/layouts'))) {
+        if (! is_dir($directory = resource_path('views/admin'))) {
             mkdir($directory, 0755, true);
         }
-        if (! is_dir($directory = resource_path('views/auth/passwords'))) {
+        if (! is_dir($directory = resource_path('views/admin/layouts'))) {
             mkdir($directory, 0755, true);
         }
-        if (! is_dir($directory = resource_path('views/pages'))) {
+
+        if (! is_dir($directory = resource_path('views/admin/auth/passwords'))) {
+            mkdir($directory, 0755, true);
+        }
+        if (! is_dir($directory = resource_path('views/admin/pages'))) {
             mkdir($directory, 0755, true);
         }
         if (! is_dir($directory = app_path('Http/Controllers/Admin'))) {
