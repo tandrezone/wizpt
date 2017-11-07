@@ -71,7 +71,7 @@ trait WizRegistersUsers
     {
         $request->user()->authorize(['Administrator']);
         $roles = AdminRole::all();
-        return View::make('auth.register')
+        return View::make('admin.auth.register')
                 ->with('roles',$roles);
     }
 
