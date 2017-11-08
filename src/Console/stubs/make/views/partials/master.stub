@@ -1,0 +1,9 @@
+@include('partials.head')
+
+@yield('before-content')
+<main>
+@yield('master')
+</main>
+@yield('after-content')
+
+@include('partials.footer')

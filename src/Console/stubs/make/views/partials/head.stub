@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>
+        @section('title')
+            {{ $title or 'Sogrape S.G.P.S.' }}
+        @show
+        </title>
+        <!--[if lt IE 9]>
+            <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    @section('meta')
+        <meta name="robots" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    @show
+
+    @section('open-graph')
+        <meta name="description" content="">
+        <meta property="og:title" content="Sogrape S.G.P.S." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ Request::url() }}" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+    @show
+
+    </head>
+    <body class="{{ $body_class or '' }}">
+        <div class="page-wrapper">
+            <header>
+                <div class="logo-header">
+                    <a href="">
+                        <img src="assets/img/header/logo-header.svg">
+                    </a>
+                </div>
+                <nav class="page-links">
+                    <div class="main-links">
+                        <a class="{{ Route::currentRouteName() === 'reports' ? 'active' : '' }}" href="">Relatórios anuais</a>
+                        <a class="{{ Route::currentRouteName() === 'contacts' ? 'active' : '' }}" href="">Contactos</a>
+                        <a class="{{ Route::currentRouteName() === 'video' ? 'active' : '' }}" href="">Original Legacy Wines</a>
+                        <a href="">EN</a>
+                    </div>
+                </nav>
+            </header>

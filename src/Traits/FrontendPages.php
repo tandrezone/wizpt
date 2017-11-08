@@ -29,7 +29,7 @@ trait FrontendPages
             return $needToChangeLang;
         }
     	$page = $this->get($slug);
-        return View::make('pages.frontend')
+        return View::make('partials.pages')
             ->with('page',$page[0])
             ->with('pageCtrl',$this);
     }

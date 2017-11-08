@@ -36,13 +36,18 @@ class CmsMakeCommand extends Command
         'auth/passwords/email.stub' => 'admin/auth/passwords/email.blade.php',
         'auth/passwords/reset.stub' => 'admin/auth/passwords/reset.blade.php',
         'layouts/app.stub' => 'admin/layouts/app.blade.php',
-        'home.stub' => 'home.blade.php',
+        'home.stub' => 'admin/home.blade.php',
 
         'pages/create.stub' => 'admin/pages/create.blade.php',
         'pages/edit.stub' => 'admin/pages/edit.blade.php',
-        'pages/frontend.stub' => 'pages/frontend.blade.php',
+        'pages/frontend.stub' => 'partials/pages.blade.php',
         'pages/index.stub' => 'admin/pages/index.blade.php',
         'pages/show.stub' => 'admin/pages/show.blade.php',
+
+        'partials/head.stub' => 'partials/head.blade.php',
+        'partials/footer.stub' => 'partials/footer.blade.php',
+        'partials/master.stub' => 'partials/master.blade.php',
+
     ];
 
     /**
@@ -113,14 +118,13 @@ class CmsMakeCommand extends Command
         if (! is_dir($directory = resource_path('views/admin/layouts'))) {
             mkdir($directory, 0755, true);
         }
-
         if (! is_dir($directory = resource_path('views/admin/auth/passwords'))) {
             mkdir($directory, 0755, true);
         }
         if (! is_dir($directory = resource_path('views/admin/pages'))) {
             mkdir($directory, 0755, true);
         }
-        if (! is_dir($directory = resource_path('views/pages'))) {
+        if (! is_dir($directory = resource_path('views/partials'))) {
             mkdir($directory, 0755, true);
         }
         if (! is_dir($directory = app_path('Http/Controllers/Admin'))) {

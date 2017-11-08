@@ -1,3 +1,6 @@
+@extends('partials.master')
+
+@section('master')
 <p>
 	@foreach($page->getParent($page->parent) as $parent)
 		<a href="{{$parent->slug}}">{{$parent->title}}</a>
@@ -14,3 +17,4 @@
 		<a href="{{$parent->slug}}">{{$parent->title}}</a>
 	@endforeach
 </p>
+@endsection
