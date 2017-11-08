@@ -1,40 +1,7 @@
             <footer>
-                <nav class="footer-links">
-                    <ul class="logo-links">
-                        <li><a class="footer-logo-content" href="http://www.sograpevinhos.com" target="_blank"><img class="logo-1" src="assets/img/footer/logo1.svg"></a></li>
-                        <li><a class="footer-logo-content" href="http://www.bodegaslan.com" target="_blank"><img class="logo-9" src="assets/img/footer/logo9.svg"></a></li>
-                        <li><a class="footer-logo-content" href="http://www.flichman.com.ar" target="_blank"><img class="logo-11" src="assets/img/footer/logo11.svg"></a></li>
-                        <li><a class="footer-logo-content" href="http://www.framingham.co.nz" target="_blank"><img class="logo-10" src="assets/img/footer/logo10.svg"></a></li>
-                        <li><a class="footer-logo-content" href="http://www.clboldos.cl" target="_blank"><img class="logo-9" src="assets/img/footer/logo2.svg"></a></li>
-                        <li><div class="footer-logo-content"><img class="logo-7" src="assets/img/footer/logo7.svg"></div></li>
-                        <li><div class="footer-logo-content"><img class="logo-6" src="assets/img/footer/logo6.svg"></div></li>
-                        <li><div class="footer-logo-content"><img class="logo-3" src="assets/img/footer/logo3.svg"></div></li>
-                        <li><a class="footer-logo-content" href="http://www.evaton.com" target="_blank"><img class="logo-8" src="assets/img/footer/logo8.svg"></a></li>
-                        <li><a class="footer-logo-content" href="http://www.sogrape.uk" target="_blank"><img class="logo-5" src="assets/img/footer/logo5.svg"></a></li>
-                        <li><div class="footer-logo-content"><img class="logo-4" src="assets/img/footer/logo4.svg"></div></li>
-                    </ul>
-                </nav>
-                <div class="wine-moderation-wrapper">
-                    <div class="under-construction">
-                        Site em construção
-                    </div>
-                    <div class="wine-moderation">
-                        <div class="moderation-cell first-cell"><a href="http://www.wineinmoderation.eu/" target="_blank"><img src="assets/img/footer/wine-moderation.svg"></a></div>
-                        <span class="moderation-cell second-cell">seja responsável. Beba com moderação.</span>
-                    </div>
-                </div>
-                <div class="footer-copyright">
-                    <div class="copyright-line-top"></div>
-                    <div class="copyright-content-wrapper">
-                        <div class="top">
-                            <span class="footer-copyrighttext">Copyright &copy;2016 Sogrape S.G.P.S.</span>
-                        </div>
-                        <div class="down">
-                            <span class="footer-production">Realização <a href="http://wiz.pt" target="_blank">Wiz Interactive</a></span>
-                        </div>
-                    </div>
-                </div>
+
             </footer>
+            
         </div>
     </body>
 </html>

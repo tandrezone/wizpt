@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        @if(env('KEY_GOOGLE_ANALITICS')) 
+            @include('partials.gtm') 
+        @endif
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>
         @section('title')
-            {{ $title or 'Sogrape S.G.P.S.' }}
+            {{ $title or ''}}
         @show
         </title>
         <!--[if lt IE 9]>
@@ -15,30 +18,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     @show
 
+    <meta property="og:site_name" content="{{ config('app.name', 'Laravel') }}">
+    <meta property="og:locale" content="{{ app()->getLocale() }}">
+    <meta property="og:type" content="website" />
     @section('open-graph')
-        <meta name="description" content="">
-        <meta property="og:title" content="Sogrape S.G.P.S." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{ Request::url() }}" />
-        <meta property="og:description" content="" />
-        <meta property="og:image" content="" />
+        <meta name="description" content="{{$description or ''}}">
+        <meta property="og:title" content="{{$title or ''}})" />
+        <meta property="og:url" content="{{ $meta['route'] or request()->url() }}" />
+        <meta property="og:description" content="{{$description or ''}}" />
+        <meta property="og:image" content="{{ $meta['image'] or asset('img/share.jpg') }}" />
     @show
-
     </head>
-    <body class="{{ $body_class or '' }}">
-        <div class="page-wrapper">
-            <header>
-                <div class="logo-header">
-                    <a href="">
-                        <img src="assets/img/header/logo-header.svg">
-                    </a>
-                </div>
-                <nav class="page-links">
-                    <div class="main-links">
-                        <a class="{{ Route::currentRouteName() === 'reports' ? 'active' : '' }}" href="">Relatórios anuais</a>
-                        <a class="{{ Route::currentRouteName() === 'contacts' ? 'active' : '' }}" href="">Contactos</a>
-                        <a class="{{ Route::currentRouteName() === 'video' ? 'active' : '' }}" href="">Original Legacy Wines</a>
-                        <a href="">EN</a>
-                    </div>
-                </nav>
-            </header>
+    
+    <body class="{{ $bodyClass or '' }}">
+
+    <div id="app" style="display:initial;height:100%;">
+    @include('partials.header')
+
+    

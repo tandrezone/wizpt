@@ -45,8 +45,10 @@ class CmsMakeCommand extends Command
         'pages/show.stub' => 'admin/pages/show.blade.php',
 
         'partials/head.stub' => 'partials/head.blade.php',
+        'partials/header.stub' => 'partials/header.blade.php',
         'partials/footer.stub' => 'partials/footer.blade.php',
         'partials/master.stub' => 'partials/master.blade.php',
+        'partials/gtm.stub' => 'partials/gtm.blade.php',
 
     ];
 
