@@ -30,7 +30,7 @@
     @show
     </head>
     
-    <body class="{{ $bodyClass or '' }}">
+    <body class="{{ $body_class or '' }}">
 
     <div id="app" style="display:initial;height:100%;">
     @include('partials.header')
