@@ -1,7 +1,7 @@
 {
     "name": "wizpt/cms",
     "description": "cms for wiz",
-    "version": "1.1",
+    "version": "1.2",
     "require": {},
     "minimum-stability": "stable",
     "autoload": {

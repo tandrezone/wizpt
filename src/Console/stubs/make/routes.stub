@@ -9,6 +9,7 @@ Route::post("/admin/upload",'Admin\tinymceController@upload');
 
 Route::group(['middleware' => 'wizpt\cms\Middleware\setlang'], function () {
 	Route::get('{slug}', [
+		'as' => 'pages',
 	    'uses' => 'PagesController@getPage' 
 	])->where('slug', '([A-Za-z0-9\-\/]+)');
 });
